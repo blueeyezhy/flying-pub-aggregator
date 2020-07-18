@@ -34,6 +34,16 @@ services:
       - ./pg-init-scripts:/docker-entrypoint-initdb.d
       - ./postgresql:/var/lib/postgresql/data
     environment:
-      POSTGRES_MULTIPLE_DATABASES: aggregator
+      POSTGRES_MULTIPLE_DATABASES: aggregator, reader, reader_wallet
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 39f12851f5275222e8b50fddddf04ee4
+
+
+  redis:
+    image: 'dockerhub.qingcloud.com/pressone/redis:alpine'
+    ports:
+      - '6379:6379'
+    command: redis-server --requirepass a863a35d270fceb110f96374d75c219f --appendonly yes
+    volumes:
+      - './redis:/data'
+    restart: 'always'
