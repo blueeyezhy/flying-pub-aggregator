@@ -1,7 +1,7 @@
 [atom]
-db_url = "postgres://postgres:39f12851f5275222e8b50fddddf04ee4@postgres:5433/aggregator"
+db_url = "postgres://postgres:39f12851f5275222e8b50fddddf04ee4@postgres:5432/aggregator"
 prs_base_url = "https://prs-bp[1-3].press.one/api/chain"
-bind_address = "0.0.0.0:7071"
+bind_address = "0.0.0.0:7070"
 thread_num = 50
 xml_output_dir = "output"
 
