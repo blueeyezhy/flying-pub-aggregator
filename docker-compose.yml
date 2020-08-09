@@ -20,7 +20,7 @@ services:
       - './config/Settings.toml:/app/Settings.toml'
     command: sh -c "/wait-for postgres:5432 -- diesel migration run && /app/atom web"
     ports:
-      - 7070:7070
+      - 7071:7070
     restart: always
     depends_on:
       - postgres
@@ -34,7 +34,7 @@ services:
       - ./pg-init-scripts:/docker-entrypoint-initdb.d
       - ./postgresql:/var/lib/postgresql/data
     environment:
-      POSTGRES_MULTIPLE_DATABASES: aggregator, reader, reader_wallet
+      POSTGRES_MULTIPLE_DATABASES: aggregator, aggre-reader, aggre-reader_wallet
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 39f12851f5275222e8b50fddddf04ee4
 
